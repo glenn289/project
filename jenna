@@ -1,1 +1,983 @@
 
+
+#_______________Importa_______________
+from pyrogram import*
+from pyrogram.types import*
+import pickle
+from climate import meteorology
+
+
+
+#_______________Authorization_________
+
+bot = Client(
+   "bot",
+   api_id = 15950536,
+   api_hash = "16dbf244f9ba994e72d1a5e85970d863",
+   bot_token = "6003898206:AAEA1THScNRezaRh5AbZBij_41rRlsUBO3w"
+)
+
+
+#_______________class_________________
+
+
+
+
+
+#_______________function______________
+
+
+async def paris1(client, message):
+   await bot.send_message(
+      message.chat.id,
+      "چه کاری از دستم بر میاد🐾",
+      reply_markup = ReplyKeyboardMarkup(
+         [
+            ["آیدی یاب🪪"],
+            ["هواشناسی 🌊","کتابخانه🗄"],
+            ["آموزش👩‍🎓"]
+         ],resize_keyboard = True
+      ) 
+   )
+
+
+
+async def paris2(client, message):
+   idd = message.chat.id
+   f = open(f"France{idd}.dat","rb")
+   listid=pickle.load(f)
+   f.close()
+   listid[1]=1
+   f = open(f"France{idd}.dat","wb")
+   pickle.dump(listid,f)
+   f.close()
+   
+   await bot.send_message(
+      message.chat.id,
+      "شما می توانید با ارسال یک فایل آیدی آن را در سرور تلگرام دریافت کنید، یا اینکه با فرستادن این آیدی یا آدرس مدیا داخل اینترنت فایل را دریافت کنید🪶",
+      reply_markup = ReplyKeyboardMarkup(
+         [
+            ["آیدی میخام🗝","گرفتن مدیا🏮"],
+            ["برگرد🍂"]
+         ],resize_keyboard = True
+      ) 
+   )
+
+
+
+async def paris3(client, message):
+   idd = message.chat.id
+   f = open(f"France{idd}.dat","rb")
+   listid=pickle.load(f)
+   f.close()
+   listid[1]=2
+   f = open(f"France{idd}.dat","wb")
+   pickle.dump(listid,f)
+   f.close()
+   
+   await bot.send_message(
+      message.chat.id,
+      "شما می توانید اطلاعات مورد نیاز خود را در کتابخانه ذخیره کنید.🗄\n\nبرای نوشتن ابتدا شماره کتاب و سپس نام کتاب و در نهایت متن را ارسال کنید.📔\nبرای خواندن کافی است شماره کتاب را ارسال کنید.〽️\nبرای پاک کردن هم فقط شماره کتاب نیاز است.🔅",
+      reply_markup = ReplyKeyboardMarkup(
+         [
+            ["پاک کردن 📠","خواندن📓","نوشتن🖋"],
+            ["برگرد🍂"]
+         ],resize_keyboard = True
+      ) 
+   )
+
+
+
+
+
+async def paris4(client, message):
+   idd = message.chat.id
+   f = open(f"France{idd}.dat","rb")
+   listid=pickle.load(f)
+   f.close()
+   listid[1]=3
+   f = open(f"France{idd}.dat","wb")
+   pickle.dump(listid,f)
+   f.close()
+   
+   await bot.send_message(
+      message.chat.id,
+      "این بخش به زودی راه اندازی خواهد شد🦢",
+      reply_markup = ReplyKeyboardMarkup(
+         [
+            ["برگرد🍂"]
+         ],resize_keyboard = True
+      ) 
+   )
+   
+   
+async def paris5(client, message):
+   idd = message.chat.id
+   f = open(f"France{idd}.dat","rb")
+   listid=pickle.load(f)
+   f.close()
+   loc=listid[1]
+   
+   if (loc==1):
+      listid[1]=0
+      await paris1(client,message)
+      
+   elif (loc==2):
+      listid[1]=0
+      await paris1(client,message)
+      
+   elif (loc==3):
+      listid[1]=0
+      await paris1(client,message)
+      
+   elif (loc==4):
+      listid[1]=1
+      await paris2(client,message)
+      
+   elif (loc==5):
+      listid[1]=1
+      await paris2(client,message)
+      
+   elif (loc==6):
+      listid[1]=2
+      await paris3(client,message)
+      
+   elif (loc==7):
+      listid[1]=2
+      await paris3(client,message)
+      
+   elif (loc==8):
+      listid[1]=2
+      await paris3(client,message)
+      
+   elif (loc==9):
+      listid[1]=2
+      await paris3(client,message)
+      
+   elif (loc==10):
+      listid[1]=2
+      await paris3(client,message)
+      
+   elif (loc==11):
+      listid[1]=0
+      await paris1(client,message)
+    
+   f = open(f"France{idd}.dat","wb")
+   pickle.dump(listid,f)
+   f.close()
+   
+   
+   
+async def paris6(client, message):
+   idd = message.chat.id
+   await bot.send_message(message.chat.id,"متوجه نمیشم؛ برای برگشت کافیه بنویسی برگرد.")
+   
+   f = open(f"France{idd}.dat","rb")
+   listid=pickle.load(f)
+   f.close()
+   loc=listid[1]
+   
+   if (loc==0):
+      await paris1(client, message)
+   elif (loc==1):
+      await paris2(client, message)
+   elif (loc==2):
+      await paris3(client, message)
+   elif (loc==3):
+      await paris4(client, message)
+
+   
+   
+async def paris7(client, message):
+   idd = message.chat.id
+   f = open(f"France{idd}.dat","rb")
+   listid=pickle.load(f)
+   f.close()
+   listid[1]=5
+   f = open(f"France{idd}.dat","wb")
+   pickle.dump(listid,f)
+   f.close()
+   
+   await bot.send_message(
+      message.chat.id,
+      "مدیا را ارسال کنید🧵",
+      reply_markup = ReplyKeyboardMarkup(
+         [
+            ["برگرد🍂"]
+         ],resize_keyboard = True
+      ) 
+   )
+   
+   
+   
+async def paris8(client, message):
+   idd = message.chat.id
+   f = open(f"France{idd}.dat","rb")
+   listid=pickle.load(f)
+   f.close()
+   listid[1]=4
+   f = open(f"France{idd}.dat","wb")
+   pickle.dump(listid,f)
+   f.close()
+   
+   await bot.send_message(
+      message.chat.id,
+      "آیدی مدیا یا آدرس اینترنتی آن را ارسال کنید🦄",
+      reply_markup = ReplyKeyboardMarkup(
+         [
+            ["برگرد🍂"]
+         ],resize_keyboard = True
+      ) 
+   )
+   
+      
+         
+async def paris9(client, message):
+   idd = message.chat.id
+   f = open(f"France{idd}.dat","rb")
+   listid=pickle.load(f)
+   f.close()
+   listid[1]=7
+   books=listid[3]
+   book1=books[0]
+   book2=books[2]
+   book3=books[4]
+   book4=books[6]
+   book5=books[8]
+   book6=books[10]
+   book7=books[12]
+   book8=books[14]
+   book9=books[16]
+   book10=books[18]
+   
+   f = open(f"France{idd}.dat","wb")
+   pickle.dump(listid,f)
+   f.close()
+   
+   await bot.send_message(
+      message.chat.id,
+      f"𝒴ℴ𝓊𝓇ℯ ℳ𝓎 ℰ𝓋ℯ𝓇𝓎 ℳℴ𝓂ℯ𝓃𝓉 💜\n\n\n\nکتابخانه📓\n\n\n\n1_{book1}📕\n2_{book2}📕\n\n                                3_{book3}📕\n                                4_{book4}📕\n                                5_{book5}📕\n\n6_{book6}📕\n7_{book7}📕\n8_{book8}📕\n\n                                9_{book9}📕\n                                10_{book10}📕\n\n\n\nبرای مشاهده محتوای هر کتاب شماره کنار آن را به صورت اعداد لاتین وارد کنید.📐",
+      reply_markup = ReplyKeyboardMarkup(
+         [
+            ["برگرد🍂"]
+         ],resize_keyboard = True
+      ) 
+   )
+   
+      
+         
+            
+               
+                  
+async def paris10(client, message):
+   idd = message.chat.id
+   f = open(f"France{idd}.dat","rb")
+   listid=pickle.load(f)
+   f.close()
+   listid[1]=6
+   f = open(f"France{idd}.dat","wb")
+   pickle.dump(listid,f)
+   f.close()
+   
+   await bot.send_message(
+      message.chat.id,
+      "شماره کتاب را وارد کنید(عددی بین 1 تا 10 وارد کنید.)👩‍🏫",
+      reply_markup = ReplyKeyboardMarkup(
+         [
+            ["برگرد🍂"]
+         ],resize_keyboard = True
+      ) 
+   )   
+   
+   
+   
+async def paris11(client, message):
+   shod=0
+   
+   await message.forward(-1001802275472)
+   try:
+      await bot.send_message(message.chat.id, message.photo.file_id)
+      shod=1
+   except:
+      pass
+      
+   try:
+      await bot.send_message(message.chat.id, message.audio.file_id)
+      shod=1
+   except:
+      pass
+      
+   try:
+      await bot.send_message(message.chat.id, message.document.file_id)
+      shod=1
+   except:
+      pass
+      
+   try:
+      await bot.send_message(message.chat.id, message.sticker.file_id)
+      shod=1
+   except:
+      pass
+      
+   try:
+      await bot.send_message(message.chat.id, message.video.file_id)
+      shod=1
+   except:
+      pass
+      
+   try:
+      await bot.send_message(message.chat.id, message.animation.file_id)
+      shod=1
+   except:
+      pass
+      
+   try:
+      await bot.send_message(message.chat.id, message.video_note.file_id)
+      shod=1
+   except:
+      pass
+      
+   try:
+      await bot.send_message(message.chat.id, message.voice.file_id)
+      shod=1
+   except:
+      pass
+   
+   if shod==1:
+      pass
+   elif shod==0:
+      await bot.send_message(message.chat.id, "مدیا اشتباه است🪡")
+      
+      
+      
+      
+      
+      
+
+   
+   
+async def paris12(client, message):
+   shod=0
+   
+   try:
+      await bot.send_photo(message.chat.id,message.text)
+      shod=1
+   except:
+      pass
+   
+   try:
+      await bot.send_audio(message.chat.id,message.text)
+      shod=1
+   except:
+      pass
+      
+   try:
+      await bot.send_document(message.chat.id,message.text)
+      shod=1
+   except:
+      pass
+      
+   try:
+      await bot.send_sticker(message.chat.id,message.text)
+      shod=1
+   except:
+      pass
+      
+   try:
+      await bot.send_video(message.chat.id,message.text)
+      shod=1
+   except:
+      pass
+      
+   try:
+      await bot.send_animation(message.chat.id,message.text)
+      shod=1
+   except:
+      pass
+      
+   try:
+      await bot.send_voice(message.chat.id,message.text)
+      shod=1
+   except:
+      pass
+      
+   try:
+      await bot.send_video_note(message.chat.id,message.text)
+      shod=1
+   except:
+      pass
+      
+
+   if shod==1:
+      pass
+   elif shod==0:
+      await bot.send_message(message.chat.id, "مدیا پیدا نشد💤")
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+   
+   
+async def paris13(client, message):
+   idd = message.chat.id
+   text = message.text
+   f = open(f"France{idd}.dat","rb")
+   listid=pickle.load(f)
+   f.close()
+   listid[1]=8
+   listid[4]=text
+   f = open(f"France{idd}.dat","wb")
+   pickle.dump(listid,f)
+   f.close()
+   
+   await bot.send_message(
+      message.chat.id,
+      "نام کتاب را وارد کنید🖨",
+      reply_markup = ReplyKeyboardMarkup(
+         [
+            ["برگرد🍂"]
+         ],resize_keyboard = True
+      ) 
+   )
+   
+   
+   
+async def paris14(client, message):
+   idd = message.chat.id
+   text = message.text
+   
+   f = open(f"France{idd}.dat","rb")
+   listid=pickle.load(f)
+   f.close()
+  
+   books = listid[3]
+   try:
+      ab = (2*int(text))-1
+      ac = books[ab]
+      await bot.send_message(
+         message.chat.id,
+         f"کتاب {text} 🪶:\n\n\n{ac}",
+         reply_markup = ReplyKeyboardMarkup(
+            [
+               ["برگرد🍂"]
+            ],resize_keyboard = True
+         ) 
+      )
+   except:
+      await bot.send_message(message.chat.id,"مشکلی وجود دارد 🐚")
+   
+   
+   
+   
+   
+async def paris15(client, message):
+   
+   idd = message.chat.id
+   text = message.text
+   f = open(f"France{idd}.dat","rb")
+   listid=pickle.load(f)
+   f.close()
+   listid[1]=9
+   listid[2]=text
+   f = open(f"France{idd}.dat","wb")
+   pickle.dump(listid,f)
+   f.close()
+   
+   await bot.send_message(
+      message.chat.id,
+      "محتوای کتاب را بنویسید📁",
+      reply_markup = ReplyKeyboardMarkup(
+         [
+            ["برگرد🍂"]
+         ],resize_keyboard = True
+      ) 
+   )
+   
+   
+   
+   
+async def paris16(client, message):
+   idd = message.chat.id
+   text = message.text
+   f = open(f"France{idd}.dat","rb")
+   listid=pickle.load(f)
+   f.close()
+   nbook = listid[2]
+   books = listid[3]
+   ibook = listid[4]
+   try:
+      nabook=(2*int(ibook))-2
+      mabook=(2*int(ibook))-1
+      books[nabook]=nbook
+      books[mabook]=text
+      listid[3]=books
+      listid[1]=2
+      f = open(f"France{idd}.dat","wb")
+      pickle.dump(listid,f)
+      f.close()
+      
+      await bot.send_message(
+      message.chat.id,
+      "کتاب ایجاد شد 🖥")
+      await paris3(client, message)
+      
+      
+   except:
+      listid[1]=2
+      f = open(f"France{idd}.dat","wb")
+      pickle.dump(listid,f)
+      f.close()
+      await bot.send_message(
+      message.chat.id,
+      "مشکلی وجود دارد 🐚")
+      await paris3(client, message)
+      
+      
+      
+async def paris17(client, message):
+   idd = message.chat.id
+   text = message.text
+   f = open(f"France{idd}.dat","rb")
+   listid=pickle.load(f)
+   f.close()
+   listid[1]=10
+
+   f = open(f"France{idd}.dat","wb")
+   pickle.dump(listid,f)
+   f.close()
+   
+   await bot.send_message(
+      message.chat.id,
+      "شماره کتاب را وارد کنید 🛢",
+      reply_markup = ReplyKeyboardMarkup(
+         [
+            ["برگرد🍂"]
+         ],resize_keyboard = True
+      ) 
+   )
+   
+
+async def paris18(client, message):
+   idd = message.chat.id
+   text = message.text
+   f = open(f"France{idd}.dat","rb")
+   listid=pickle.load(f)
+   f.close()
+   books = listid[3]
+
+   try:
+      nabook = (2*int(text))-2
+      mabook = (2*int(text))-1
+      books[nabook] = "کتابی وجود ندارد"
+      books[mabook] = "کتابی وجود ندارد"
+      f = open(f"France{idd}.dat","wb")
+      pickle.dump(listid,f)
+      f.close()
+      await bot.send_message(
+         message.chat.id,
+         "کتاب پاک شد🧱",
+         reply_markup = ReplyKeyboardMarkup(
+            [
+               ["برگرد🍂"]
+            ],resize_keyboard = True
+         ) 
+      )
+   
+   except:
+      await bot.send_message(
+         message.chat.id,
+         "مشکلی وجود دارد 🐚",
+         reply_markup = ReplyKeyboardMarkup(
+            [
+               ["برگرد🍂"]
+            ],resize_keyboard = True
+         ) 
+      )
+   
+
+   
+async def paris20(client, message):
+   idd = message.from_user.id
+   text = message.text
+   ord = text.replace(text[0:16],"")
+   print(f"text is {text}")
+   print(f"ord is {ord}")
+   
+   f = open(f"Italy.dat","rb")
+   lists=pickle.load(f)
+   f.close()
+   
+   admins = lists[0]
+   
+   if ord[0:10] == "add_admin_":
+      op = ord.replace(ord[0:10],"")
+      qw = 0
+      
+      for i in admins:
+         if i == op:
+            qw = 1
+         else:
+            pass
+            
+      if qw == 1:
+         await bot.send_message(message.from_user.id,"فرد مورد نظر همین الانشم آدمینه😒")
+       
+      elif qw == 0:
+         try:
+            await bot.send_message(op,"""سطح دسترسی شما به آدمین تغییر کرد🥰. برای مشاهده آموزش های آدمین می توانید روی دستور زیر کلیک کنید🫢.
+
+/no_time_to_die_admin_education""")
+            await bot.send_message(message.from_user.id,f"فرد با آیدی عددی {op} آدمین شد🎩.")
+            op = [op]
+            admins = admins+op
+            lists[0] = admins
+            f = open(f"Italy.dat","wb")
+            pickle.dump(lists,f)
+            f.close()
+         except:
+            await bot.send_message(message.from_user.id,"دستور مورد نظر انجام نشد🧣.\nبرای اینکار باید حتما فرد چت ربات را داشته باشد و اینکه آیدی عددی صحیح باشد🌂.")
+            
+         
+      
+      
+      
+      
+      
+      
+#   elif ord[0:11] == "admin_list_":
+#      
+#   elif ord[0:11] == "del_admin_":
+#      
+#   elif ord[0:11] == "list_Italy_":
+#      
+   
+   
+
+
+async def paris21(client, message):
+   idd = message.chat.id
+   f = open(f"France{idd}.dat","rb")
+   listid=pickle.load(f)
+   f.close()
+   listid[1]=11
+   lista = listid[6]
+   lista[0] = 0
+   listid[6] = lista
+   
+   
+   await bot.send_message(
+      message.chat.id,
+      "آب و هوای امروز",
+      reply_markup = ReplyKeyboardMarkup(
+         [
+            ["سراسر جهان","پیش بینی هوا"],
+            ["نقشه های آب و هوایی"],
+            ["برگرد🍂"]
+         ],resize_keyboard = True
+      )
+   )
+
+
+   qa = await bot.send_message(
+      message.chat.id,
+      "شهر مورد نظر خود را انتخاب کنید",
+      reply_markup = InlineKeyboardMarkup(
+         [
+            [
+               InlineKeyboardButton("مراغه",callback_data = "maragheh"),
+               InlineKeyboardButton("رشت",callback_data = "rasht"),
+               InlineKeyboardButton("بابل",callback_data = "babol"),
+               InlineKeyboardButton("گرگان",callback_data = "gorgan"),
+               InlineKeyboardButton("مشهد",callback_data = "mashhad")
+            ],
+            [
+               InlineKeyboardButton("سنندج",callback_data = "sanandaj"),
+               InlineKeyboardButton("همدان",callback_data = "hamadan"),
+               InlineKeyboardButton("تهران",callback_data = "tehran"),
+               InlineKeyboardButton("طبس",callback_data = "tabas"),
+               InlineKeyboardButton("بیرجند",callback_data = "birjand")
+            ],
+            [
+               InlineKeyboardButton("خرم آباد",callback_data = "khorramabad"),
+               InlineKeyboardButton("اصفهان",callback_data = "isfahan"),
+               InlineKeyboardButton("یزد",callback_data = "yazd"),
+               InlineKeyboardButton("کرمان",callback_data = "kerman"),
+               InlineKeyboardButton("زابل",callback_data = "zabol")
+            ],
+            [
+               InlineKeyboardButton("اهواز",callback_data = "ahvaz"),
+               InlineKeyboardButton("شیراز",callback_data = "shiraz"),
+               InlineKeyboardButton("بوشهر",callback_data = "bushehr"),
+               InlineKeyboardButton("میناب",callback_data = "minab"),
+               InlineKeyboardButton("زاهدان",callback_data = "zahedan")
+            ]
+         ]
+      )
+   )
+   qa = int(qa.id)
+   listi = listid[5]
+   listi[0] = qa
+   listid[5] = listi
+   f = open(f"France{idd}.dat","wb")
+   pickle.dump(listid,f)
+   f.close()
+
+
+
+
+
+
+
+
+
+
+
+
+#_______________decorators____________
+
+
+
+@bot.on_message(filters.private)
+async def aghaz(client,message):
+   idd = message.chat.id
+   text = message.text
+   listid=[]
+   lists=[]
+   
+   try:
+      f = open(f"Italy.dat","rb")
+      lists=pickle.load(f)
+      f.close()
+   except:
+      lists=[[],"x","x","x","x","x","x","x","x","x","x","x","x","x","x","x","x"]
+      f = open(f"Italy.dat","wb")
+      pickle.dump(lists,f)
+      f.close()
+   
+   
+   
+   try:
+      f = open(f"France{idd}.dat","rb")
+      listid=pickle.load(f)
+      f.close()
+   except:
+      listid=[idd,0,"x",["کتابی وجود ندارد","کتابی وجود ندارد","کتابی وجود ندارد","کتابی وجود ندارد","کتابی وجود ندارد","کتابی وجود ندارد","کتابی وجود ندارد","کتابی وجود ندارد","کتابی وجود ندارد","کتابی وجود ندارد","کتابی وجود ندارد","کتابی وجود ندارد","کتابی وجود ندارد","کتابی وجود ندارد","کتابی وجود ندارد","کتابی وجود ندارد","کتابی وجود ندارد","کتابی وجود ندارد","کتابی وجود ندارد","کتابی وجود ندارد"],"x",["x","x","x","x","x","x","x","x","x","x"],["x","x","x","x","x","x","x","x","x","x"],"x","x","x","x","x","x","x","x","x","x"]
+      f = open(f"France{idd}.dat","wb")
+      pickle.dump(listid,f)
+      f.close()
+      
+   loc=listid[1]
+   if (text[0:16]) == "/no_time_to_die_":
+      await paris20(client, message)
+      
+   elif (loc==0):
+      if text == "/start":
+         await paris1(client, message)
+      elif text == "آیدی یاب🪪":
+         await paris2(client, message)
+      elif text == "کتابخانه🗄":
+         await paris3(client, message)
+      elif text == "آموزش👩‍🎓":
+         await paris4(client, message)
+      elif text == "هواشناسی 🌊":
+         await paris21(client, message)
+      else:
+         await paris6(client, message)
+   
+   elif (loc==1):
+      if text == "آیدی میخام🗝":
+         await paris7(client, message)
+      elif text == "گرفتن مدیا🏮":
+         await paris8(client, message)
+      elif (text == "برگرد🍂") or (text == "برگرد"):
+         await paris5(client, message)
+      else:
+         await paris6(client, message)
+      
+   elif (loc==2):
+      if text == "خواندن📓":
+         await paris9(client, message)
+      elif text == "نوشتن🖋":
+         await paris10(client, message)
+      elif text == "پاک کردن 📠":
+         await paris17(client, message)
+      elif (text == "برگرد🍂") or (text == "برگرد"):
+         await paris5(client, message)
+      else:
+         await paris6(client, message)
+         
+   elif (loc==3):
+      if (text == "برگرد🍂") or (text == "برگرد"):
+         await paris5(client, message)
+      else:
+         await paris6(client, message)
+         
+         
+   elif (loc==4):
+      if (text == "برگرد🍂") or (text == "برگرد"):
+         await paris5(client, message)
+      else:
+         await paris12(client, message)
+         
+         
+   elif (loc==5):
+      if (text == "برگرد🍂") or (text == "برگرد"):
+         await paris5(client, message)
+      else:
+         await paris11(client, message)
+         
+         
+   elif (loc==6):
+      if (text == "برگرد🍂") or (text == "برگرد"):
+         await paris5(client, message)
+      else:
+         await paris13(client, message)
+         
+         
+   elif (loc==7):
+      if (text == "برگرد🍂") or (text == "برگرد"):
+         await paris5(client, message)
+      else:
+         await paris14(client, message)
+
+   elif (loc==8):
+      if (text == "برگرد🍂") or (text == "برگرد"):
+         await paris5(client, message)
+      else:
+         await paris15(client, message)
+         
+   elif (loc==9):
+      if (text == "برگرد🍂") or (text == "برگرد"):
+         await paris5(client, message)
+      else:
+         await paris16(client, message)
+         
+   elif (loc==10):
+      if (text == "برگرد🍂") or (text == "برگرد"):
+         await paris5(client, message)
+      else:
+         await paris18(client, message)
+         
+   elif (loc==11):
+      if (text == "برگرد🍂" ) or (text == "برگرد"):
+         await paris5(client, message)
+      else:
+         pass
+
+
+
+
+
+
+@bot.on_callback_query()
+async def callbackq (client, callback_query):
+   text = callback_query.data
+   idd = callback_query.from_user.id
+   f = open(f"France{idd}.dat","rb")
+   listid=pickle.load(f)
+   f.close()
+   loc = listid[1]
+   lista = listid[6]
+   listi = listid[5]
+   qa = listi[0]
+   au = lista[0]
+   
+   if (loc==11) and ( au==0 ):
+      lista[0] = 1
+      listid[6] = lista
+      f = open(f"France{idd}.dat","wb")
+      pickle.dump(listid,f)
+      f.close()
+      await bot.edit_message_text(idd, qa,"لطفا صبور باشید...")
+      #try:
+      listm = meteorology(text)
+      await bot.edit_message_text(
+         idd,
+         qa,
+         f'''𝚆𝚎𝚊𝚝𝚑𝚎𝚛 𝚂𝚝𝚊𝚝𝚒𝚘𝚗 🛰
+   
+   
+**{listm[2]}**, **{listm[3]}**, **{listm[4]}**  As of {listm[84]} ⛅️
+{listm[5]}  {listm[0]}° N ,  {listm[1]}° E
+{listm[52]} {listm[83]}  (GMT: +{listm[85]})
+
+
+
+
+Temperature : {listm[63]}°
+Temperature Feels Like : {listm[66]}°
+High / Low : {(listm[19])[0]}° / {(listm[20])[0]}°
+The State Of The Sky : {listm[78]}
+Wind Speed : {listm[77]} mph
+Wind Direction : {listm[76]}
+Humidity : {listm[59]}%
+Dew Point : {listm[65]}°
+Pressure : {listm[55]} in
+Pressure Change : {listm[56]}
+UV Index : {listm[73]}/11
+Visibility : {listm[74]} mi
+Moon Phase : {(listm[10])[0]}
+Sunrise Time Local : {listm[61]}
+Sunset Time Local : {listm[62]}
+   
+'''
+      )
+      #except:
+#         await bot.edit_message_text(
+#            idd,
+#            qa,
+#            f'''مشکلی وجود دارد'''
+#         )
+         
+         
+         
+         
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+print("on")
+bot.run()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
